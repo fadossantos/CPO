@@ -1,0 +1,23 @@
+<table>
+<tr th:text="${message}"></tr>
+	<tr>
+		<td>Id Cidade</td>
+		<td>Nome Cidade</td>
+		<td>UF</td>
+	</tr>
+	<tr th:each="listValue : ${listCidades}">
+		<td th:text="${listValue.idCidade}"></td>
+		<td th:text="${listValue.nomeCidade}"></td>
+		<td th:text="${listValue.estado.nomeEstado}"></td>
+
+		<td><a class="btn btn-primary" 
+			th:onclick="'executaAjaxGet(\'/data/cidade/remover/'+ ${listValue.idCidade} + '\',\'listaCidades\',\'\',\'\');'"><span
+				class="btn-label"><i class="fa fa-check"></i></span>Remover</a></td>
+		<td><a class="btn btn-primary"
+			th:onclick="'exibeModalEditaCidade(\'' + ${listValue.idCidade} + '\');'">
+
+				<span class="btn-label"><i class="fa fa-check"></i></span>Editar
+		</a></td>
+
+	</tr>
+</table>

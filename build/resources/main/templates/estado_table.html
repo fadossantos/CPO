@@ -1,0 +1,25 @@
+<table>
+	<tr th:text="${message}"></tr>
+	<tr>
+		<td>Id Estado</td>
+		<td>Sigla</td>
+		<td>Nome Estado</td>
+
+	</tr>
+	<tr th:each="listValue : ${listEstados}">
+		<td th:text="${listValue.idEstado}"></td>
+		<td th:text="${listValue.siglaEstado}"></td>
+		<td th:text="${listValue.nomeEstado}"></td>
+		
+
+		<td><a class="btn btn-primary"
+			th:onclick="'executaAjaxGet(\'/data/estado/remover/'+ ${listValue.idEstado} + '\',\'listaEstados\',\'\',\'\');'"><span
+				class="btn-label"><i class="fa fa-check"></i></span>Remover</a></td>
+		<td><a class="btn btn-primary"
+			th:onclick="'exibeModalEditaEstado(\'' + ${listValue.idEstado} + '\');'">
+
+				<span class="btn-label"><i class="fa fa-check"></i></span>Editar
+		</a></td>
+
+	</tr>
+</table>

@@ -1,0 +1,26 @@
+<form id = "formEstado" action="/data/estado" th:action="@{/data/estado}"
+	th:object="${formEstado}" method="post" target="listaEstados">
+	<table>
+	<tr>
+		
+			<td><label for="siglaEstado">Sigla Estado:</label></td>
+			<td><input type="text" th:field="*{siglaEstado}" value="" /></td>
+		</tr>
+		<tr>
+			<input type="hidden" th:field="*{idEstado}" />
+			<td><label for="nomeEstado">Estado:</label></td>
+			<td><input type="text" th:field="*{nomeEstado}" value="" /></td>
+		</tr>
+
+		<tr>
+			<td colspan="2"><a class="btn btn-primary"
+			th:onclick="'executaAjaxPost(\'listaEstados\',$(this).closest(\'form\')[0],\'\',\'\');'"><span
+				class="btn-label"><i class="fa fa-check"></i></span>Salvar</a></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<h3 th:text="${message}">Mensagem</h3>
+			</td>
+		</tr>
+	</table>
+</form>
